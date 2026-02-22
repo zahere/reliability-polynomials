@@ -1,0 +1,70 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "reliability-polynomials"
+version = "0.1.0"
+description = "Generalized reliability polynomials for quality-weighted network analysis"
+readme = "README.md"
+license = "BSD-3-Clause"
+requires-python = ">=3.11"
+authors = [
+    { name = "Zaher Khateeb", email = "zaher@agenticraft.ai" },
+]
+keywords = [
+    "reliability",
+    "polynomial",
+    "network-reliability",
+    "multi-agent",
+    "llm",
+    "fault-tolerance",
+    "quality",
+    "bernstein",
+    "graph-theory",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: System :: Networking",
+    "Typing :: Typed",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "ruff>=0.4",
+    "pyright>=1.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/zahere/reliability-polynomials"
+Repository = "https://github.com/zahere/reliability-polynomials"
+Issues = "https://github.com/zahere/reliability-polynomials/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/reliability_polynomials"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 99
+src = ["src"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "B", "SIM", "TCH"]
+
+[tool.pyright]
+pythonVersion = "3.11"
+typeCheckingMode = "strict"
+include = ["src"]
